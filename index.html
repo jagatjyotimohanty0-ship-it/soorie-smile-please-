@@ -1,1 +1,761 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+
+<title>Good Morning Baby ❤️</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:linear-gradient(135deg,#ff9ecf,#9fdcff);
+
+}
+
+
+.container{
+
+width:90%;
+max-width:420px;
+
+padding:30px;
+
+text-align:center;
+
+background:rgba(255,255,255,0.3);
+
+border-radius:25px;
+
+backdrop-filter:blur(10px);
+
+}
+
+
+h1{
+
+color:#ff2f92;
+margin-bottom:20px;
+
+}
+
+
+p,h3{
+
+margin:12px;
+
+color:#444;
+
+}
+
+
+
+button{
+
+padding:14px 25px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff4fa3;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+margin-top:15px;
+
+box-shadow:0 5px 15px rgba(255,79,163,0.4);
+
+transition:0.3s;
+
+}
+
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+#scanBox{
+
+margin-top:25px;
+
+font-size:18px;
+
+color:#ff2f92;
+
+}
+.report-card{
+
+background:rgba(255,255,255,0.45);
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+
+animation:cardShow 1s ease;
+
+}
+
+
+
+@keyframes cardShow{
+
+from{
+
+opacity:0;
+
+transform:scale(0.8);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+/* Floating Hearts */
+
+body::before{
+
+content:"❤️ 💖 💕 💗 ❤️";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+font-size:30px;
+
+word-spacing:50px;
+
+line-height:100px;
+
+opacity:0.25;
+
+animation:hearts 10s linear infinite;
+
+pointer-events:none;
+
+}
+
+
+
+@keyframes hearts{
+
+0%{
+
+transform:translateY(100vh);
+
+}
+
+
+100%{
+
+transform:translateY(-120vh);
+
+}
+
+}
+
+
+/* Button Glow Animation */
+
+button{
+
+animation:glow 2s infinite;
+
+}
+
+
+
+@keyframes glow{
+
+0%{
+
+box-shadow:0 0 5px #ff4fa3;
+
+}
+
+
+50%{
+
+box-shadow:0 0 25px #ff4fa3;
+
+}
+
+
+100%{
+
+box-shadow:0 0 5px #ff4fa3;
+
+}
+
+}
+
+
+
+/* Scan Text Animation */
+
+#scanBox{
+
+animation:pulse 1s infinite;
+
+}
+
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.03);
+
+}
+
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+<audio id="bgMusic" loop>
+<source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<h1>
+🌞 Good Morning Baby ❤️
+</h1>
+
+
+<h3>
+Today's Date:
+</h3>
+
+
+<p>
+23-07-2026 ❤️
+</p>
+
+
+<p>
+Aaj ka din officially tumhari smile ke naam. 😊
+</p>
+
+<button onclick="startMusic()">
+🎵 START MUSIC ❤️
+</button>
+<h3>
+Ready for your Daily Smile Scan?
+</h3>
+
+
+<button onclick="startScan()">
+▶️ START SCAN
+</button>
+
+
+<div id="scanBox"></div>
+
+
+</div>
+
+
+
+<script>
+
+
+function startScan(){
+
+
+let box=document.getElementById("scanBox");
+
+
+let steps=[
+
+"🤖 Scanner Loading...",
+
+"⌨️ Smile Scanner Starting...",
+
+"█░░░░░░░░░ 10%<br>Tumhari profile search ho rahi hai... 👀",
+
+"████░░░░░░ 40%<br>Secret information collect ho rahi hai... 🤫",
+
+"███████░░░ 70%<br>Heart connection verify ho raha hai... ❤️",
+
+"██████████ 100%<br>Scan Complete! ✅"
+
+];
+
+let i=0;
+
+
+let timer=setInterval(()=>{
+
+
+box.innerHTML=steps[i];
+
+i++;
+
+
+if(i==steps.length){
+
+clearInterval(timer);
+
+setTimeout(showReport,1500);
+
+}
+
+
+},1500);
+
+
+
+}
+
+
+
+function showReport(){
+
+let box=document.getElementById("scanBox");
+
+
+box.innerHTML=`
+
+<div class="report-card">
+
+<h2>📋 Final Report</h2>
+
+<br>
+
+👤 Name:
+<br>
+Snoor ❤️
+
+<br><br>
+
+🌸 Status:
+<br>
+Meri Sabse Favorite Person
+
+<br><br>
+
+✨ Cuteness Level:
+<br>
+Infinite ♾️
+
+<br><br>
+
+😊 Smile Power:
+<br>
+Ek smile se mera pura din ban jata hai.
+
+
+<br><br>
+
+<button onclick="showPolice()">
+🚔 CHECK LOVE POLICE DATABASE
+</button>
+
+</div>
+
+`;
+}
+
+
+
+function showPolice(){
+
+let box=document.getElementById("scanBox");
+
+
+box.innerHTML=`
+
+<h2>🚔 LOVE POLICE DATABASE</h2>
+
+<br>
+
+🚨 Crime Detected:
+<br>
+❤️ Dil Chori
+
+<br><br>
+
+🕵️ Prime Suspect:
+<br>
+Snoor 🤭
+
+<br><br>
+
+👤 Victim:
+<br>
+Jagat
+
+
+<br><br>
+
+📌 Evidence:
+
+<br>
+• Cute Smile 😊
+
+<br>
+• Innocent Face 🥺
+
+<br>
+• Beautiful Eyes ✨
+
+
+<br><br>
+
+⚖️ Punishment:
+
+<br>
+Lifetime mere saath rehna. ❤️
+<br><br>
+
+<button onclick="showExtra()">
+❤️ SEE EXTRA FINDINGS
+</button>
+
+`;
+
+}
+
+function showExtra(){
+
+let box=document.getElementById("scanBox");
+
+
+box.innerHTML=`
+
+<h2>❤️ EXTRA FINDINGS</h2>
+
+<br>
+
+❤️ Heartbeat:
+<br>
+Fast
+
+<br><br>
+
+Reason:
+<br>
+Snoor detected. 🤭
+
+
+<br><br>
+
+🏡 Safe Place Found:
+
+<br>
+
+→ Mere dil mein. 🤍
+
+
+<br><br>
+
+<button onclick="showNote()">
+💌 OPEN SECRET NOTE
+</button>
+
+
+`;
+
+}
+function showNote(){
+
+let box=document.getElementById("scanBox");
+
+
+box.innerHTML=`
+
+<h2>💌 SECRET NOTE</h2>
+
+<br>
+
+Pata hai...
+
+<br><br>
+
+Kabhi kabhi lagta hai,
+meri life ki sabse achhi notification tum thi. ❤️
+
+<br><br>
+
+Aur aaj bhi...
+
+<br><br>
+
+meri favourite person...
+<br>
+meri favourite smile...
+<br>
+meri favourite feeling...
+
+<br><br>
+
+sirf tum ho. ❤️
+
+
+<br><br>
+
+<button onclick="showSurprise()">
+😂 START SURPRISE CHECK
+</button>
+
+
+`;
+
+}
+function showSurprise(){
+
+let box=document.getElementById("scanBox");
+
+
+box.innerHTML=`
+
+<h2>😂 SURPRISE CHECK</h2>
+
+<br>
+
+Checking...
+
+<br><br>
+
+Kya Snoor duniya ki
+<br>
+sabse pyari ladki hai?
+
+<br><br>
+
+YES ✅
+
+<br><br>
+
+YES ✅
+
+<br><br>
+
+YES ✅
+
+<br><br>
+
+Searching another answer...
+
+<br><br>
+
+Error ❌
+
+<br>
+
+Aur koi option hi nahi mila. 😂❤️
+
+
+<br><br>
+
+<button onclick="showWarning()">
+⚠️ SEE IMPORTANT NOTICE
+</button>
+
+
+`;
+
+}
+function showWarning(){
+
+let box=document.getElementById("scanBox");
+
+
+box.innerHTML=`
+
+<h2>⚠️ IMPORTANT NOTICE</h2>
+
+<br>
+
+Rona strictly banned. 🚫😭
+
+<br><br>
+
+Agar tum royi...
+
+<br><br>
+
+To ek ladka udhar bahut pareshaan ho jayega.
+
+<br><br>
+
+Naam:
+
+<br>
+
+Jagat. 🥺❤️
+
+
+<br><br>
+
+<button onclick="showResult()">
+🩺 VIEW FINAL RESULT
+</button>
+
+
+`;
+
+}
+function showResult(){
+
+let box=document.getElementById("scanBox");
+
+
+box.innerHTML=`
+
+<h2>🩺 FINAL RESULT</h2>
+
+<br>
+
+Diagnosis:
+
+<br>
+
+Tum officially bahut zyada precious ho. 🥹
+
+<br><br>
+
+Treatment:
+
+<br>
+
+🤍 Unlimited Virtual Hugs
+
+<br><br>
+
+💋 Forehead Kisses (Pending 😌)
+
+<br><br>
+
+❤️ Lifetime Love
+
+<br><br>
+
+😊 Aur ek cute si smile...
+
+<br>
+
+sirf mere liye.
+
+
+<br><br>
+
+<button onclick="finalSurprise()">
+🙈 DON'T CLICK (VERY DANGEROUS)
+</button>
+
+
+`;
+
+}
+function finalSurprise(){
+
+let box=document.getElementById("scanBox");
+
+
+box.innerHTML=`
+
+<h2>🎉🎉🎉</h2>
+
+<br>
+
+😂 Haha! Mujhe pata tha tum click karogi.
+
+<br><br>
+
+Ab smile aa gayi na? ❤️
+
+<br><br>
+
+Mission Completed. ✅
+
+<br><br>
+
+🌞 Good Morning Baby ☀️
+
+<br><br>
+
+Promise me...
+
+<br><br>
+
+Aaj chahe kuch bhi ho,
+
+<br>
+
+Smile karna mat bhoolna.
+
+<br><br>
+
+Kyuki tumhari ek smile...
+
+<br>
+
+Mera pura din beautiful bana deti hai. ❤️
+
+<br><br>
+
+I Love You So Much,
+
+<br>
+
+Snoor. 🌙🤍
+
+
+`;
+
+}
+function startMusic(){
+
+let music = document.getElementById("bgMusic");
+
+music.play();
+
+}
+</script>
+
+
+</body>
+
+</html>
